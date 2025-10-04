@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Splurge";
+    src: url("../assets/fonts/splurge.ttf") format("truetype");
+}
+
+
+body{
+    background-color: #222222;
+}
+
+#search-logo-container {
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+
+#search-logo {
+    cursor: grab;
+    pointer-events: none;
+    position: absolute;
+    width:200px;
+    height: fit-content;
+    left:50%;
+    transform: translate(-50%, 0%);
+}
+
+#search-logo-button {
+    position: absolute;
+    width:200px;
+    aspect-ratio: 8 / 1;
+    left:50%;
+    transform: translate(-50%, 0%);
+    opacity: 0%;
+}
+
+#results-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.result {
+    padding:4px;
+    position: relative;
+    width: max(25%, 300px);
+    aspect-ratio: 3 / 2;
+    margin: 10px;
+    /* background-color:red; */
+    border-radius:10px;
+    border-color: #666666;
+    border-width: 2px;
+    border-style: solid;
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "image descr";
+    grid-template-rows: 4fr 7fr;
+    gap: 5px;
+    background-color: #282828;
+    overflow: hidden;
+}
+
+.result > h2.result-title {
+    grid-area: title;
+    overflow: scroll;
+    scrollbar-width: none;
+    text-align: center;
+    font-size: 1em;
+    color: #ffffff;
+    font-family: 'Splurge', sans-serif;
+    letter-spacing:1.5px;
+}
+
+.result > h2.result-title a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.result > img.result-image {
+    grid-area: image;
+    justify-self: center;
+    /* align-self: center; */
+    max-height: 80%;
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.result > p.result-description {
+    grid-area: descr;
+    overflow: scroll;
+    scrollbar-width: none;
+    font-size: 0.8em;
+    color: #dddddd;
+    /* align-self: center; */
+}
