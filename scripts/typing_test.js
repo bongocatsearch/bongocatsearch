@@ -74,7 +74,7 @@ userInput.addEventListener('keydown', function(event) {
             return;
         }
         
-        window.location.href = "https://www.google.com/search?q="+(userInput.value.replaceAll(" ","+").toLowerCase())
+        search(userInput.value);
     }
 });
 
@@ -85,6 +85,11 @@ function failSearch() {
     clearInterval(wpmChecker);
     startTime = -1;
     userInput.value = "";
+}
+
+function search(query) {
+    // window.location.href = "https://www.google.com/search?q="+(query.replaceAll(" ","+"));
+    window.location.href = "search_results.html?search=" + query.replaceAll(" ", "+");
 }
 
 
