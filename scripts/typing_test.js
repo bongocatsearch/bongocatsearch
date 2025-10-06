@@ -43,6 +43,17 @@ document.onkeydown = function(event) {
 
 function updateWPM() {
     const len = userInput.value.length;
+
+    // Reset timer if input is empty
+    if (len === 0) {
+        startTime = -1;
+        clearInterval(wpmChecker);
+        wpm.textContent = 0;
+        WPM = 0;
+        spoodomotorRotateThingy.style.transform = 'rotate(-90deg)';
+        return;
+    }
+
     const time = performance.now() - startTime;
     const actual_wpm = Math.round(len/(time/1000)/5*60);
     wpm.textContent = actual_wpm;
